@@ -64,7 +64,7 @@
           parentProp[newPropName] = newValue;
           // bubble event from descent property to top level
           for (var l = path.length, curPropPath; l > 0; l--) {
-            curPropPath = path.slice(0, l).join('.')
+            curPropPath = path.slice(0, l).join('.');
             this.trigger('change:' + curPropPath, curPropPath, getDescentProp(this.state, curPropPath));
           }
         } else {
