@@ -4,7 +4,7 @@
   "description": "Simple model with minimalistic API",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js && jscs index.js"
+    "test": "jscs index.js && mocha test.js && istanbul cover _mocha -- -R spec"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/romantaraban/tiny-model",
   "devDependencies": {
     "chai": "^2.2.0",
+    "istanbul": "^0.3.13",
     "jscs": "^1.12.0",
     "mocha": "^2.2.1"
   },

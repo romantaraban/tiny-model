@@ -36,6 +36,33 @@ describe('Model', function() {
       assert.equal(1, marker2);
       assert.equal(1, marker3);
     });
+
+    it('should throw an error on accessing property of undefined onject', function() {
+      try {
+        model.set('asdf.asdf.asdfasdf2344323.sd');
+      } catch (error) {
+        assert.equal(true, error instanceof Error);
+      }
+    });
+
+    it('should do nothing when assinging same value', function() {
+      var marker = 0;
+      var nn = {nothing3: 2, nothing2: {test:1}}
+      model.set('nothing', 1);
+      model.set(nn);
+      model.set('nothing2.test', 1);
+      
+      model.on('change:nothing', function() {marker++});
+      model.on('change:nothing2.test', function() {marker++});
+      model.on('change:nothing2', function() {marker++});
+      model.on('change:nothing3', function() {marker++});
+
+      model.set('nothing', 1);
+      model.set(nn);
+      model.set('nothing2.test', 1);
+      assert.equal(0, marker);
+    });
+
   });
 
   describe('get()', function() {

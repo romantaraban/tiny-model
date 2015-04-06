@@ -69,9 +69,9 @@
           }
         } else {
           // if not an object - then we can't set child properties to it, throw an error
-          throw new Error('\'name\' is not an object');
+          throw new Error(curPropPath + 'is not an object');
         }
-      } else {
+      } else if (this.state[arguments[0]] !== arguments[1]) {
         this.state[arguments[0]] = arguments[1];
         this.trigger('change:' + arguments[0], arguments[0], arguments[1]);
       }
@@ -79,8 +79,10 @@
       var data = arguments[0];
       for (var prop in data) {
         if (data.hasOwnProperty(prop)) {
-          this.state[prop] = data[prop];
-          this.trigger('change:' + prop, prop, data[prop]);
+          if (this.state[prop] !== data[prop]) {
+            this.state[prop] = data[prop];
+            this.trigger('change:' + prop, prop, data[prop]);
+          }
         }
       }
     }
