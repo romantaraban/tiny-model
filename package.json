@@ -4,7 +4,7 @@
   "description": "Simple model with minimalistic API",
   "main": "index.js",
   "scripts": {
-    "test": "jscs index.js && mocha test.js && istanbul cover _mocha -- -R spec"
+    "test": "jscs index.js && istanbul cover _mocha -- -R spec"
   },
   "repository": {
     "type": "git",
