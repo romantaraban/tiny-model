@@ -22,11 +22,11 @@ describe('Model', function() {
       model.on('change:testobj.f', function() {marker2++});
       model.on('change:testobj.f.z', function() {marker3++});
 
-      model.set({testobj: {a:2, f:{}}});
+      model.set({testobj: {a: 2, f: {}}});
       model.set('testobj.ttt', 3);
       model.set('testobj.f.z', 1);
 
-      // test asigment
+      // test assignment
       assert.equal(2, model.state.testobj.a);
       assert.equal(3, model.state.testobj.ttt);
       assert.equal(1, model.state.testobj.f.z);
@@ -37,7 +37,7 @@ describe('Model', function() {
       assert.equal(1, marker3);
     });
 
-    it('should throw an error on accessing property of undefined onject', function() {
+    it('should throw an error on accessing property of undefined object', function() {
       try {
         model.set('asdf.asdf.asdfasdf2344323.sd');
       } catch (error) {
@@ -45,9 +45,9 @@ describe('Model', function() {
       }
     });
 
-    it('should do nothing when assinging same value', function() {
+    it('should do nothing when assigning same value', function() {
       var marker = 0;
-      var nn = {nothing3: 2, nothing2: {test:1}}
+      var nn = {nothing3: 2, nothing2: {test: 1}}
       model.set('nothing', 1);
       model.set(nn);
       model.set('nothing2.test', 1);
