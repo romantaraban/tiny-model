@@ -3,7 +3,7 @@
  * @author romantaraban <rom.taraban@gmail.com>
  * @license MIT
  *
- * Model's event system is based on this this Publish/Subscribe implementataion
+ * Model's event system is based on this Publish/Subscribe implementataion https://github.com/romantaraban/tiny-model
  */
 
 (function(root, factory) {
