@@ -55,7 +55,7 @@
         } catch (error) {
           throw error;
         }
-        // check most descant parent property for type
+        // check most descent parent property for type
         if (typeof(parentProp) === 'object') {
           // assing value to property
           if (parentProp[newPropName] === newValue) {
